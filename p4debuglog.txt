@@ -30,7 +30,7 @@ Breakpoint 1, main () at p4original.c:11
 (gdb) s
 input () at p4original.c:25
 25  {
-(gdb) n
+(gdb)  n
 28      printf("Enter array length: ");
 (gdb) n
 29      scanf("%d", &a);
