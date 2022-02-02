@@ -1,0 +1,105 @@
+ gcc -g p8original.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main 
+Breakpoint 1 at 0x77b: file p8original.c, line 17.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p8original.c:17
+17  {
+(gdb) n
+18    int n = get_n();
+(gdb) n
+Enter the number of cmplx numbers: 3
+20    cmplx c[n], res;
+(gdb) s
+21    input_n_cmplx(n, c);
+(gdb) n
+
+Enter the real part: 12
+Enter the imaginary part : 34
+
+Enter the real part: 23
+Enter the imaginary part : 56
+
+Enter the real part: 34
+Enter the imaginary part : 32
+23    res = add_n_cmplx(n, c);
+(gdb) s
+add_n_cmplx (n=3, c=0x7ffe93edcc30) at p8original.c:69
+69    res.img = 0;
+(gdb) 
+70    res.real = 0;
+(gdb) n
+72    for(int i=0; i<n; i++)
+(gdb) n
+73      res = add(res, c[i]);
+(gdb) 
+72    for(int i=0; i<n; i++)
+(gdb) n
+73      res = add(res, c[i]);
+(gdb) n
+72    for(int i=0; i<n; i++)
+(gdb) n
+73      res = add(res, c[i]);
+(gdb) n
+72    for(int i=0; i<n; i++)
+(gdb) n
+75    return res;
+(gdb) n
+76  }
+(gdb) n
+main () at p8original.c:25
+25    output(n, c, res);
+(gdb) s
+output (n=3, c=0x7ffe93edcc30, result=...) at p8original.c:80
+80    if(n==1)
+(gdb) n
+88      printf("\nThe complex numbers are: \n");
+(gdb) n
+
+The complex numbers are: 
+89      for(int i = 0; i < n; i++)
+(gdb) n
+91          printf("%0.2f + %0.2fi\n", c[i].real, c[i].img);
+(gdb) n
+12.00 + 34.00i
+89      for(int i = 0; i < n; i++)
+(gdb) n
+91          printf("%0.2f + %0.2fi\n", c[i].real, c[i].img);
+(gdb) n
+23.00 + 56.00i
+89      for(int i = 0; i < n; i++)
+(gdb) n
+91          printf("%0.2f + %0.2fi\n", c[i].real, c[i].img);
+(gdb) n
+34.00 + 32.00i
+89      for(int i = 0; i < n; i++)
+(gdb) n
+94      printf("\nHence, the result= %0.2f + %0.2fi",result.real, result.img);
+(gdb) n
+
+96  }
+(gdb) n
+main () at p8original.c:27
+27    return 0;
+(gdb) c
+Continuing.
+Hence, the result= 69.00 + 122.00i[Inferior 1 (process 392) exited normally]
+(gdb) q
