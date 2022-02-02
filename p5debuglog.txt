@@ -1,0 +1,111 @@
+ gcc -g p5original.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main 
+Breakpoint 1 at 0x772: file p5original.c, line 10.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p5original.c:10
+10    a = input();
+(gdb) n
+Enter number = 16
+11    b = input();
+(gdb) n
+Enter number = 25
+12    c = input();
+(gdb) s
+input () at p5original.c:24
+24  {
+(gdb) n
+26      printf("Enter number = ");
+(gdb) n
+27      scanf("%f", &x);
+(gdb) n
+Enter number = 49
+28      return x;
+(gdb) n
+29  }
+(gdb) n
+main () at p5original.c:15
+15    a1 = square_Root(a);
+(gdb) s
+square_Root (n=16) at p5original.c:35
+35    float x = n;
+(gdb) n
+36    float y = 1.0;
+(gdb) 
+38    if ( x < 0 )
+(gdb) n
+46      while (x > y)
+(gdb) n
+48        x = (x + y) / 2;
+(gdb) n
+49        y = n / x;
+(gdb) n
+46      while (x > y)
+(gdb) n
+48        x = (x + y) / 2;
+(gdb) n
+49        y = n / x;
+(gdb) n
+46      while (x > y)
+(gdb) n
+48        x = (x + y) / 2;
+(gdb) 
+49        y = n / x;
+(gdb) n
+46      while (x > y)
+(gdb) n
+48        x = (x + y) / 2;
+(gdb) n
+49        y = n / x;
+(gdb) n
+46      while (x > y)
+(gdb) n
+48        x = (x + y) / 2;
+(gdb) n
+49        y = n / x;
+(gdb) n
+46      while (x > y)
+(gdb) n
+48        x = (x + y) / 2;
+(gdb) n
+49        y = n / x;
+(gdb) n
+46      while (x > y)
+(gdb) n
+53    return x;
+(gdb) n
+54  }
+(gdb) n
+main () at p5original.c:16
+16    b1 = square_Root(b);
+(gdb) n
+17    c1 = square_Root(c);
+(gdb) n
+19    output(a,b,c,a1,b1,c1);
+(gdb) n
+Square Root of 16.00 is 4.00
+Square Root of 25.00 is 5.00
+Square Root of 49.00 is 7.00
+21  }
+(gdb) c
+Continuing.
+[Inferior 1 (process 236) exited normally]
+(gdb) q
